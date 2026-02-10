@@ -6,9 +6,9 @@
 
 #include "generated_plugin_registrant.h"
 
-#include <rive_native/rive_native_plugin.h>
+#include <rive_common/rive_plugin.h>
 
 void RegisterPlugins(flutter::PluginRegistry* registry) {
-  RiveNativePluginRegisterWithRegistrar(
-      registry->GetRegistrarForPlugin("RiveNativePlugin"));
+  RivePluginRegisterWithRegistrar(
+      registry->GetRegistrarForPlugin("RivePlugin"));
 }
