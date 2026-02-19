@@ -23,6 +23,39 @@ class _LoginScreenState extends State<LoginScreen> {
   SMITrigger? _trigSuccess;
   SMITrigger? _trigFail;
 
+  //1 Crear variables focusNode
+  final _emailFocusNode = FocusNode();
+  final _passwordFocusNode = FocusNode();
+
+  //2 Agregar listeners a los focusNode
+  @override
+  void initState() {
+    super.initState();
+
+    _emailFocusNode.addListener(() {
+      if (_emailFocusNode.hasFocus) {
+        //Verifica que no sea nulo
+        if (_isHandsUp != null) {
+          //Manos abajo en el email
+          _isHandsUp?.change(false);
+        }
+      }
+    });
+
+    //Listener para password
+    _passwordFocusNode.addListener(() {
+      if (_passwordFocusNode.hasFocus) {
+        if (_isChecking != null) {
+          //No quiero el modo chismoso en el password
+          _isChecking?.change(false);
+        }
+        if (_isHandsUp != null) {
+          _isHandsUp?.change(true);
+        }
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     //Para obtener el tamaño de la pantalla
@@ -56,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     //_numLook = _controller!.findSMI('numLook') as SMITrigger;
                     _trigSuccess = _controller!.findSMI('trigSuccess');
                     _trigFail = _controller!.findSMI('trigFail');
-                  },
+                  }
                 ),
               ),
 
@@ -64,11 +97,15 @@ class _LoginScreenState extends State<LoginScreen> {
 
               // TextField Email
               TextField(
+                //1.3 Agregar focusNode al TextField
+                focusNode: _emailFocusNode,
                 onChanged: (value) {
                   if (_isHandsUp != null) {
-                    _isHandsUp!.change(false);
+                    //_isHandsUp!.change(false);
                   }
+                  //si chcking es nulo
                   if (_isChecking != null) {
+                    //Activar modo chismoso
                     _isChecking!.change(true);
                   }
                 },
@@ -85,10 +122,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
               // TextField Password
               TextField(
+                //1.3 Agregar focusNode al TextField
+                focusNode: _passwordFocusNode,
                 onChanged: (value) {
                   if (_isChecking != null) {
-                    _isChecking!.change(false);
-                  }
+                    //No quiero el modo chismoso en el password
+                    //_isChecking!.change(false);
+                  }/////////////////////////////////
                   if (_isHandsUp != null) {
                     _isHandsUp!.change(true);
                   }
@@ -119,5 +159,13 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  //1.4 Liberar recursos(memoria) de los focusNode
+  @override
+  void dispose() {
+    _emailFocusNode.dispose();
+    _passwordFocusNode.dispose();
+    super.dispose();
   }
 }
