@@ -1,4 +1,3 @@
-# login_with_rive_animation_5sa_26_1
 # 🎯 Flutter Login Animation App
 
 An interactive login screen built with Flutter integrating a Rive animated bear controlled through a State Machine.
@@ -9,7 +8,7 @@ An interactive login screen built with Flutter integrating a Rive animated bear 
 
 **Course:** Graficacion  
 **Professor:** Rodrigo Fidel Gaxiola Sosa  
-**Student:** [Your Full Name]  
+**Student:** David Alejandro Poot Osorio 
 **Date:** February 2026  
 
 ---
@@ -113,4 +112,3 @@ https://rive.app/marketplace/3645-7621-remix-of-login-machine/
 ## 📚 Academic Purpose
 
 This project was developed as part of the Graficacion course, focusing on animation integration, State Machine logic, and interactive UI development using Flutter and Rive.
-The following link is to the project of the animation creator "dexterc," who made it possible to create the login screen using his work: https://rive.app/marketplace/3645-7621-remix-of-login-machine/
