@@ -8,7 +8,7 @@ An interactive login screen built with Flutter integrating a Rive animated bear 
 
 **Course:** Graficacion  
 **Professor:** Rodrigo Fidel Gaxiola Sosa  
-**Student:** David Alejandro Poot Osorio 
+**Student:** David Alejandro Poot Osorio  
 **Date:** February 2026  
 
 ---
